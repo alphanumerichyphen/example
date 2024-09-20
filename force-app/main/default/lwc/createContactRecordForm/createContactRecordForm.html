@@ -1,0 +1,35 @@
+<!-- <template>
+    <lightning-card title="Create Contact Record Form" icon-name="utility:contact">
+        <div class="slds-p-horizontal_medium">
+            <lightning-record-form
+                object-api-name="Contact"
+                fields={fields}
+                columns="2"
+                mode="edit"
+                onsuccess={handleSuccess}
+                onsubmit={handleSubmit}
+                >
+            </lightning-record-form>
+        </div>
+    </lightning-card>   
+</template> -->
+
+<template>
+    <lightning-card title="Create Contact Record Edit Form" icon-name="utility:contact">
+        <div class="slds-p-horizontal_medium">
+            <lightning-record-edit-form
+                object-api-name="Contact"
+                onsubmit={handleSubmit}
+                onsuccess={handleSuccess}
+                onerror={handleError}>
+                <!-- <lightning-messages></lightning-messages> -->
+                <!-- <lightning-input-field field-name="FirstName" lwc:ref="firstname" onfocusout={validateName}></lightning-input-field> -->
+                <lightning-input-field field-name="FirstName" lwc:ref="firstname" required ></lightning-input-field>
+                <lightning-input-field field-name="LastName" lwc:ref="lastname" ></lightning-input-field>
+                <lightning-input-field field-name="Email" lwc:ref="email" required></lightning-input-field>
+                <lightning-button type="reset" label="Reset"></lightning-button>
+                <lightning-button type="submit" label="Save"></lightning-button>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

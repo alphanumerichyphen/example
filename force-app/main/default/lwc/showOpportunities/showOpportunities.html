@@ -1,0 +1,51 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card title="Related Opportunities" icon-name="custom:custom17">
+        <div class="slds-var-m-around_medium">
+            
+<!-- if check for data -->
+            <template lwc:if={pagedData}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={pagedData}
+                    columns={columns}
+                    hide-checkbox-column
+                    
+                >
+                </lightning-datatable>
+
+                <!--Navigation controls-->
+                <div class="slds-var-p-top_small slds-align_absolute-center">
+
+                    <!--Previous button-->
+                    <lightning-button 
+                        name="buttonBackwards" 
+                        label="" 
+                        title="" 
+                        icon-name="utility:back" 
+                        onclick={handleButtonPrevious}  
+                        class="slds-var-m-left_x-small" 
+                        disabled={disabledPreviousButton}>
+                    </lightning-button>
+
+                    <!--Current Status-->
+                    &nbsp;&nbsp;Showing {currentPage} of {maxPages} results.
+
+                    <!--Next button-->
+                    <lightning-button 
+                        name="buttonForwards" 
+                        label="" 
+                        title="" 
+                        icon-name="utility:forward" 
+                        onclick={handleButtonNext} 
+                        class="slds-var-m-left_x-small" 
+                        disabled={disabledNextButton}>
+                    </lightning-button>
+                </div>
+            </template>
+            <template lwc:else>
+                <h2>No Data Found!</h2>
+            </template>
+        </div>
+    </lightning-card>
+</template>

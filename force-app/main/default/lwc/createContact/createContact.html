@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="Create Contact" icon-name="utility:contact">
+        <div class="slds-var-m-around_medium">
+            <lightning-input
+                label="First Name"
+                value={firstname}
+                onchange={firstnameChangeHandler}
+                required
+                pattern="[A-Za-z ]*"
+                message-when-pattern-mismatch="Name cannot contain special characters"
+            ></lightning-input>
+            <lightning-input
+                label="Last Name"
+                value={lastname}
+                onchange={lastnameChangeHandler}
+                required
+                pattern="[A-Za-z]*"
+                message-when-pattern-mismatch="Name cannot contain special characters"
+            ></lightning-input>
+            <lightning-input
+                type="email"
+                label="Email"
+                value={email}
+                onchange={emailChangeHandler}
+                required
+                pattern=".+@.+\.com"
+                message-when-pattern-mismatch="Please enter valid Email"
+                class="slds-var-m-bottom_small"
+            ></lightning-input>
+            <lightning-button
+                label="Submit"
+                vairant="brand"
+                onclick={handleSubmit}
+            ></lightning-button>
+        </div>
+    </lightning-card>
+</template>
+
+
+<!-- lightning-input-field -->
+<!-- lightning-record-form -->
